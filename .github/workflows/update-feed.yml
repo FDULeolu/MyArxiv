@@ -67,6 +67,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '20'
+      - name: Set up Git
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
       - name: Download ArxivFeed
         env:
           GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -97,3 +101,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./target
           force_orphan: true
+
